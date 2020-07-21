@@ -14,8 +14,8 @@ const vm = new Vue({
       this.gameLog = [];
       this.playerHealth = 100;
       this.monsterHealth = 100;
-      this.specialCount = 4;
-      this.healCount = 3;
+      this.specialCount = +prompt('Enter number of special attacks:');
+      this.healCount = +prompt('Enter number of heal spells:');
     },
     endGame() {
       this.gameStarted = false;
