@@ -5,6 +5,8 @@ const vm = new Vue({
     gameLog: [],
     playerHealth: 100,
     monsterHealth: 100,
+    specialCount: 4,
+    healCount: 3,
   },
   methods: {
     startGame() {
@@ -12,6 +14,8 @@ const vm = new Vue({
       this.gameLog = [];
       this.playerHealth = 100;
       this.monsterHealth = 100;
+      this.specialCount = 4;
+      this.healCount = 3;
     },
     endGame() {
       this.gameStarted = false;
@@ -30,12 +34,14 @@ const vm = new Vue({
       this.attackPlayer();
     },
     specialAttack() {
+      this.specialCount--;
       const damage = 10 + Math.round(5 * Math.random());
       this.monsterHealth -= damage;
       this.log(`PLAYER HITS MONSTER HARD FOR ${damage}`);
       this.attackPlayer();
     },
     heal() {
+      this.healCount--;
       this.playerHealth =
         this.playerHealth >= 80 ? 100 : this.playerHealth + 20;
       this.log(`PLAYER HEALS HIMSELF FOR 20`);

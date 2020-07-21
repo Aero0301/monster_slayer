@@ -45,10 +45,16 @@
       <section class="row controls" v-if="gameStarted">
         <div class="small-12 columns">
           <button id="attack" @click="attack">ATTACK</button>
-          <button id="special-attack" @click="specialAttack">
-            SPECIAL ATTACK
+          <button
+            id="special-attack"
+            @click="specialAttack"
+            :disabled="!specialCount"
+          >
+            SPECIAL ATTACK: {{ specialCount }}
           </button>
-          <button id="heal" @click="heal">HEAL</button>
+          <button id="heal" @click="heal" :disabled="!healCount">
+            HEAL: {{ healCount }}
+          </button>
           <button id="give-up" @click="endGame">GIVE UP</button>
         </div>
       </section>
